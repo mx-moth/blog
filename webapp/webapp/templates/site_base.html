@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-AU" lang="en-AU">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>
+		{% block title_base %}
+			{% block title %}{% endblock %}
+			- Tim Heap
+		{% endblock %}
+	</title>
+
+	<link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
+	<!-- <link rel="alternate" type="application/rss+xml" href="{#% url "blog.rss" %#}" /> -->
+	<link rel="stylesheet" href="{{ STATIC_URL }}style.css" />
+</head>
+<body>
+    <div id="wrapper">
+		<div id="header">
+			<h1>
+				<a href="/">
+					<img src="{{STATIC_URL}}img/logo.png" />
+					Tim Heap
+				</a>
+				<span>Web developer, programming language enthusiast, and apparently blogger.</span>
+			</h1>
+		</div>
+        
+        <div id="content">
+			{% block main %}
+			{% endblock %}
+            
+        </div>
+        
+        <footer><div class="inner">
+
+			<section id="site-meta">
+				<ul id="site-links">
+					<li><a href="/" class="button button-home">Home</a></li>
+					<li><a href="/b" class="button button-archive">Blog</a></li>
+				</ul>
+
+				<p class="copyright">&copy; {% now "Y" %} Tim Heap</p>
+
+				<!--
+				<form action="/search" method="get" id="search-form">
+					<input type="text" name="q" class="query" value="{{ request.GET.q }}" />
+					<input type="submit" value="Search" class="submit" />
+					<div class="clear"></div>
+				</form>
+				-->
+
+			</section>
+			
+			<section id="site-external">
+
+				<ul>
+					<li>Find me <a href="http://twitter.com/tim_heap">on Twitter</a>.</li>
+					<li>I put code up on <a href="https://github.com/maelstrom/">GitHub</a> and <a href="http://bitbucket.org/tim_heap">Bitbucket</a>.</li>
+					<li>I'm employed by (but do not blog for) <a href="http://ionata.com.au">Ionata Web Solutions</a>.</li>
+			   </ul>
+
+				<p class="technology">Built using
+					<a href="http://heroku.com">Heroku</a>. and
+					<a href="http://djangoproject.com">Django</a>, and
+					<a href="http://bitbucket.org/tim_heap/blog">git</a>
+				</p>
+
+			</section>
+
+		</div></footer>
+
+    </div>
+    
+</body>
+</html>

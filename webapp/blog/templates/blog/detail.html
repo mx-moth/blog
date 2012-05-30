@@ -1,0 +1,25 @@
+
+	<article class="post">
+		
+		<h2>{{ post.title }}</h2>
+
+		<div class='meta'>
+			
+			<p class="link permalink">
+				<a href="{{ post.get_absolute_url }}">
+                    Posted
+                    <span class="permalink hipster-date" title="{{ post.created }}">
+                        {{ post.created|timesince }}
+                    </span>
+                    ago
+                </a>
+			</p>
+
+			<!-- <p class="notes"></p> -->
+			<!-- <p class="tags">{block:Tags} <a href="{TagURL}">{Tag}</a>{/block:Tags}</p>{/block:HasTags} -->
+
+		</div>
+
+		<div class="copy">{{ post.body_html|safe }}</div>
+		
+	</article>

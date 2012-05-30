@@ -1,0 +1,7 @@
+{% extends "site_base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block main %}
+	{% include "blog/detail.html" with post=post %}
+{% endblock %}
