@@ -1,7 +1,7 @@
 # Django settings for webapp project.
 import os;
 
-PROJ_ROOT = os.path.dirname(__file__)
+PROJ_ROOT = os.path.dirname(os.path.dirname(__file__))
 ROOT = os.path.dirname(PROJ_ROOT)
 
 ASSETS_ROOT = os.path.join(ROOT, 'assets')
@@ -18,7 +18,9 @@ ADMINS = (
 MANAGERS = ADMINS
 
 import dj_database_url
-DATABASES = {'default': dj_database_url.config("sqlite:////%s/dev.db" % MEDIA_ROOT)}
+DATABASES = {
+    'default': dj_database_url.config(default="sqlite:////%s/dev.db" % MEDIA_ROOT)
+}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
