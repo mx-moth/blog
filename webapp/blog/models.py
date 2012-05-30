@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 
 class PostManager(models.Manager):
 
@@ -24,7 +25,7 @@ class Post(models.Model):
     objects = PostManager()
 
     def get_absolute_url(self):
-        return reverse('blog.post', slug=self.slug)
+        return reverse('blog.post', kwargs={'slug':self.slug})
 
     def __unicode__(self):
         return self.title
