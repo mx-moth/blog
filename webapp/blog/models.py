@@ -11,6 +11,7 @@ class Post(models.Model):
     class Meta:
         verbose_name = 'post'
         verbose_name_plural = 'posts'
+        ordering = ['-created']
 
     title = models.CharField(max_length=255)
     body_html = models.TextField()
