@@ -72,6 +72,27 @@
 		</div></footer>
 
     </div>
+
+<script>
+function woopraReady(tracker) {
+    tracker.setDomain('timheap.me');
+    tracker.setIdleTimeout(300000);
+    tracker.trackPageview({type:'pageview',url:window.location.pathname+window.location.search,title:document.title});
+    return false;
+}
+
+(function(d, w, s) {
+    w = d.createElement('script');
+    w.src = d.location.protocol+'//static.woopra.com/js/woopra.js';
+    w.type = 'text/javascript';
+    w.async = true;
+
+	s = d.getElementsByTagName('script')[0] ;
+	s.parentNode.insertBefore(w, s);
+})(document);
+</script>
+
+
     
 </body>
 </html>
