@@ -147,3 +147,8 @@ LOGGING = {
         },
     }
 }
+
+try:
+    from webapp.local_settings import *
+except ImportError:
+    pass
