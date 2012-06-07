@@ -11,7 +11,7 @@
 	</title>
 
 	<link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
-	<!-- <link rel="alternate" type="application/rss+xml" href="{#% url "blog.rss" %#}" /> -->
+	<link rel="alternate" type="application/rss+xml" href="{% url blog.feed %}" />
 	<link rel="stylesheet" href="{{ STATIC_URL }}style.css" />
 
 </head>
@@ -37,8 +37,9 @@
 
 			<section id="site-meta">
 				<ul id="site-links">
-					<li><a href="/" class="button button-home">Home</a></li>
-					<li><a href="/b" class="button button-archive">Blog</a></li>
+					<li><a href="/" class="">Home</a></li>
+					<li><a href="{% url blog.index %}" class="">Blog</a></li>
+					<li><a href="{% url blog.feed %}" class="">RSS</a></li>
 				</ul>
 
 				<p class="copyright">&copy; {% now "Y" %} Tim Heap</p>
