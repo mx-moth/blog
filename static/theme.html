@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <!-- DEFAULT VARIABLES -->
+    <meta name="color:Background" content="#3b627e" />
+    
+    <meta name="if:Show People I Follow" content="0" />
+    <meta name="if:Show Tags" content="1" />
+    <meta name="if:Show Album Art on Audio Posts" content="1" />
+    <meta name="if:Enable Jump Pagination" content="0" />
+    
+    <meta name="text:Disqus Shortname" content="" />
+    
+	<meta name="text:Assets" content="http://localhost:8001/" />
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>
+		{Title}{block:SearchPage}, {lang:Search results for SearchQuery}{/block:SearchPage}{block:PostSummary}, {PostSummary}{/block:PostSummary}
+	</title>
+
+    {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+    <link rel="shortcut icon" href="{Favicon}" />
+    <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
+    <link rel="alternate" type="application/rss+xml" href="{RSS}" />
+	<link rel="stylesheet" href="{text:Assets}style.css" />
+	<style type="text/css">
+		{if:Background}
+			body { background-color: {color:Background} }
+		{/if:Background}
+
+		{CustomCSS}
+	</style>
+</head>
+<body>
+    <div id="wrapper">
+		<div id="header">
+			<h1>
+				<a href="/">
+					<img src="{PortraitURL-96}" />
+					{Title}
+				</a>
+				<span id="description">{Description}</span>
+			</h1>
+		</div>
+        
+        <div id="content">
+            
+            {block:SearchPage}
+                {block:SearchResults}
+                    <div id="searchresults">{lang:SearchResultCount results for SearchQuery 2}</div>
+                {/block:SearchResults}
+                
+                {block:NoSearchResults}
+                    <div id="searchresults">{lang:No search results for SearchQuery 2}</div>
+                {/block:NoSearchResults}
+            {/block:SearchPage}
+            
+            {block:Posts}
+				<article class="post {PostType}">
+                    
+					<div class='meta'>
+						
+						{block:Date}
+							<p class="link permalink">
+								<a href="{Permalink}">
+									{block:Reblog}
+										{lang:Reblogged TimeAgo from ReblogParentName} {block:RebloggedFromReblog}(<span style="text-transform:lowercase;">{lang:Originally from ReblogRootName}</span>){/block:RebloggedFromReblog}
+									{/block:Reblog}
+									
+									{block:NotReblog}
+										{lang:Posted TimeAgo from source}
+									{/block:NotReblog}
+								</a>
+							</p>
+
+							<p class="notes">{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}</p>
+
+							{block:IfDisqusShortname}<p><a href="{Permalink}#disqus_thread">{lang:Comments}</a></p>{/block:IfDisqusShortname}
+						{/block:Date}
+						
+						{block:IfShowTags}
+							{block:HasTags}<p class="tags">{block:Tags} <a href="{TagURL}">{Tag}</a>{/block:Tags}</p>{/block:HasTags}
+						{/block:IfShowTags}
+							
+						{block:ContentSource}
+							<p class="link">
+								{lang:Source}:
+								<a href="{SourceURL}" class="source_url">
+									{block:SourceLogo}<img src="{BlackLogoURL}" width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />{/block:SourceLogo}
+									{block:NoSourceLogo}{SourceTitle}{/block:NoSourceLogo}
+								</a>
+							</p>
+						{/block:ContentSource}
+							
+						{block:PostNotes}<div class="notecontainer">{PostNotes}</div>{/block:PostNotes}
+					</div>
+
+					{block:Link}
+						<h2><a href="{URL}" {Target}>{Name}</a></h2>
+						{block:Description}<div class="copy">{Description}</div>{/block:Description}
+					{/block:Link}
+                    
+                    {block:Photo}
+                        <div class="media">{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}" />{LinkCloseTag}</div>
+                        {block:Caption}<div class="copy">{Caption}</div>{/block:Caption}
+                    {/block:Photo}
+                    
+                    {block:Video}
+                        <div class="media">{Video-500}</div>
+                        {block:Caption}<div class="copy">{Caption}</div>{/block:Caption}
+                    {/block:Video}
+                    
+                    {block:Audio}
+                        {block:IfShowAlbumArtOnAudioPosts}
+                            {block:AlbumArt}
+                                <div class="media album_art">
+                                    <img src="{AlbumArtURL}" alt="{block:Artist}{Artist}{/block:Artist}{block:TrackName} - {TrackName}{/block:TrackName}" />
+                                </div>
+                            {/block:AlbumArt}
+                        {/block:IfShowAlbumArtOnAudioPosts}
+                        
+                        <div class="audio">
+                            <div class="player">{AudioPlayerWhite}</div>
+                            <div class="meta">{PlayCountWithLabel}{block:ExternalAudio}<span class="download_external_audio"> &bull; <a href="{ExternalAudioURL}">{lang:Download}</a></span>{/block:ExternalAudio}</div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                        {block:Caption}<div class="copy">{Caption}</div>{/block:Caption}
+                    {/block:Audio}
+                    
+                    {block:Quote}
+						<blockquote class="{Length}">{Quote}
+							{block:Source}<cite>{Source}</cite>{/block:Source}
+						</blockquote>
+                    {/block:Quote}
+                        
+                    {block:Text}
+                        {block:Title}<h2>{Title}</h2>{/block:Title}
+                        <div class="copy">{Body}</h2>
+                    {/block:Text}
+                    
+                    {block:Answer}
+                        <div class="copy question">{Question}</div>
+                        <div class="asker_container"><img src="{AskerPortraitURL-24}">{Asker}</div>
+                        <div class="copy">{Answer}</div>
+                    {/block:Answer}
+                    
+                    {block:Chat}
+                        {block:Title}<h2>{Title}</h2>{/block:Title}
+						<div class="lines">
+							{block:Lines}
+								<div class="line {Alt}">{block:Label}<strong>{Label}</strong>{/block:Label} {Line}</div>
+							{/block:Lines}
+						</div>
+                    {/block:Chat}
+                    
+                    {block:IfDisqusShortname}
+                        {block:Permalink}
+                            <div class="notecontainer" style="margin:20px 0 1px 0; padding:1px 10px 10px 10px;">
+                                <div id="disqus_thread"></div>
+                                <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+                                <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
+                            </div>
+                            <div style="text-align:right; margin-top:5px;">
+                                {lang:Blog comments powered by Disqus 2}
+                            </div>
+                        {/block:Permalink}
+                    {/block:IfDisqusShortname}
+                    
+                </article>
+            {/block:Posts}
+            
+            {block:Pagination}
+                <div id="navigation" {block:IfEnableJumpPagination}class="jump_pagination"{/block:IfEnableJumpPagination}>
+                    {block:PreviousPage}<a href="{PreviousPage}">&larr; {lang:Previous}</a>{/block:PreviousPage}
+                    
+                    {block:IfEnableJumpPagination}
+                        {block:JumpPagination length="5"}
+                            {block:CurrentPage}
+                                <span class="current_page">{PageNumber}</span>
+                            {/block:CurrentPage}
+                            
+                            {block:JumpPage}
+                                <a class="jump_page" href="{URL}">{PageNumber}</a>
+                            {/block:JumpPage}
+                            
+                        {/block:JumpPagination}
+                    {/block:IfEnableJumpPagination}
+                    
+                    {block:NextPage}<a href="{NextPage}">{lang:Next page} &rarr;</a>{/block:NextPage}
+					</article>
+            {/block:Pagination}
+            
+        </div>
+        
+        <footer>
+
+			<section id="links">
+				<ul>
+					<li><a href="/" class="button button-home">{lang:Home}</a></li>
+					{block:Pages}<li><a href="{URL}" class="page">{Label}</a></li>{/block:Pages}
+
+					{block:AskEnabled}<li><a href="/ask" class="page">{AskLabel}</a></li>{/block:AskEnabled}
+					{block:SubmissionsEnabled}<li><a href="/submit" class="page">{SubmitLabel}</a></li>{/block:SubmissionsEnabled}
+					<li><a href="/random" class="button button-random">{lang:Random}</a></li>
+					<li><a href="/archive" class="button button-archive">{lang:Archive}</a></li>
+				</ul>
+			</section>
+			
+			<section id="search">
+				<ul>
+					<li><a href="{RSS}" class="button button-rss">{lang:RSS feed}</a></li>
+					<li><a href="/mobile" class="button button-mobile">{lang:Mobile}</a></li>
+					<li><a href="http://www.tumblr.com/follow/{Name}"><div class="heading" id="followontumblr">{lang:Follow on Tumblr}</div></a></li>
+				</ul>
+				<form action="/search" method="get" id="search-form">
+					<input type="hidden" name="t" value="{Name}" />
+					<input type="text" name="q" class="query" value="{SearchQuery}" />
+					<input type="submit" value="{lang:Search}" class="submit" />
+					<div class="clear"></div>
+				</form>
+			</section>
+			
+			{block:Twitter}
+				<section id="twitter">
+					<a href="http://twitter.com/{TwitterUsername}" style="text-decoration:none;"><div class="heading" id="twitter">{lang:Latest Tweets}</div></a>
+					<ol id="tweetcontainer" class="loading"></ol>
+					<script type="text/javascript">
+						function recent_tweets(data) {
+							var container = document.getElementById("tweetcontainer");
+							container.className = container.className.replace(/(\s|^)loading(\s|^)/, ' ');
+							var chunks = [];
+							for(i = 0; i < data.length; i++) {
+								chunks.push('<li class="tweet"><a href="http://twitter.com/{TwitterUsername}/status/' + (data[i].id_str ? data[i].id_str : data[i].id) + '">' + data[i].text + '</a></li>');
+							}
+							container.innerHTML = chunks.join('');
+						}
+					</script>
+				</section>
+			{/block:Twitter}
+			
+			{block:IfShowPeopleIFollow}
+				{block:Following}
+					<section id="following">
+						<div class="heading" id="following">{lang:Following}</div>
+						<div class="content" id="following-avatars">
+							{block:Followed}<a href="{FollowedURL}"><img src="{FollowedPortraitURL-40}" /></a>{/block:Followed}
+						</div>
+					</section>
+				{/block:Following}
+			{/block:IfShowPeopleIFollow}
+			
+
+			<div id="copyright">&copy; {CopyrightYears} <a href="http://www.tumblr.com">{lang:Powered by Tumblr}</a></div>
+        </footer>
+
+    </div>
+    
+    {block:Twitter}
+        <script type="text/javascript" src="/tweets.js"></script>
+    {/block:Twitter}
+    
+    {block:IfDisqusShortname}
+        <script type="text/javascript">
+            //<![CDATA[
+            (function() {
+                var links = document.getElementsByTagName('a');
+                var query = '?';
+                for(var i = 0; i < links.length; i++) {
+                    if(links[i].href.indexOf('#disqus_thread') >= 0) {
+                        query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+                    }
+                }
+                document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
+            })();
+            //]]>
+        </script>
+    {/block:IfDisqusShortname}
+</body>
+</html>
