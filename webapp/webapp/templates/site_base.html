@@ -73,6 +73,7 @@
 
     </div>
 
+	{% if not debug %}
 <script>
 function woopraReady(tracker) {
     tracker.setDomain('timheap.me');
@@ -91,6 +92,7 @@ function woopraReady(tracker) {
 	s.parentNode.insertBefore(w, s);
 })(document);
 </script>
+	{% endif %}
 
 
     

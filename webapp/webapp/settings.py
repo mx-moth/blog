@@ -8,7 +8,7 @@ ASSETS_ROOT = os.path.join(ROOT, 'assets')
 STATIC_ROOT = os.path.join(ASSETS_ROOT, 'static')
 MEDIA_ROOT = os.path.join(ASSETS_ROOT, 'media')
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -48,7 +48,7 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
-ASSET_URL = '/assets/'
+ASSET_URL = 'http://maelstrom.github.com/blog/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
