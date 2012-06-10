@@ -50,9 +50,10 @@ body {
 	background-color: @insetColor;
 }
 
-ol, ul {
+ol, ul, dd {
 	margin-left: 2em;
 }
+dt { font-weight: bold; }
 
 table {
 	border-collapse: collapse;
@@ -67,8 +68,15 @@ a:visited {
 
 
 strong { font-weight: bold; }
-
 em { font-style: italic; }
+
+abbr[title] { border-bottom: 1px dashed; }
+acronym[title] { border-bottom: 1px dashed; }
+
+ins { background-color: rgba(0, 255, 0, 0.3); text-decoration: none; }
+del { background-color: rgba(255, 0, 0, 0.3); }
+
+code { font-family: monospace; }
 
 #header {
 	padding: 1em;
@@ -113,27 +121,68 @@ em { font-style: italic; }
 	position: relative;
 	overflow: hidden;
 	background-color: white;
+	text-align: justify;
 
-	h2, h3, h4, h5, h6, p, ul, ol table, div.media, blockquote {
+	h2, h3, h4, h5, h6, p,
+	ul, ol, dl,
+	table,
+	div.media,
+	blockquote,
+	pre {
 		margin-bottom: 1em;
 	}
-	h2 {
-		font-size: 1.5em;
+
+	h2, h3, h4, h5, h6 {
+		border-bottom: 2px solid black;
 	}
+	h2 { font-size: 1.5em; }
+	h3 { font-size: 1.3em; }
+	h4 { font-size: 1.1em; }
+	h5 { font-size: 1em; font-weight: bold; }
+	h6 { font-size: 1em; }
+
+
+	blockquote, pre {
+		.inset-block();
+	}
+
+	blockquote + cite {
+		display: block;
+		text-align: right;
+		font-style: italic;
+		margin-top: -1em;
+
+		&:before {
+			content: '— ';
+		}
+	}
+	blockquote :last-child {
+		margin-bottom: 0;
+
+	}
+}
+
+.inset-block() {
+	position: relative;
+	padding: 1em;
+
+	background-color: @insetColor;
+	box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+	border-radius: 1em;
 }
 
 article {
 	margin-left: @leftColumn;
-	margin-bottom: 5em;
+	margin-bottom: 8em;
+	line-height: 1.4;
 
 	.meta {
 		float: left;
 		margin-left: -1 * (@leftColumn + @columnGap);
 		width: @leftColumn;
 		text-align: right;
-		padding-top: 0.6em;
+
 		p {
-			font-size: 0.8em;
 			margin-bottom: 0.5em;
 		}
 
@@ -149,48 +198,16 @@ article {
 		}
 	}
 
-	div.media, blockquote {
-		position: relative;
-		padding: 1em;
-		background-color: @insetColor;
-		box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
-		border-radius: 1em;
-	}
 	div.media {
+		.inset-block();
 		text-align: center;
 		img {
 			max-width: 100%;
 		}
 	}
-
-	&.chat .lines {
-		border-top: 1px solid @insetColor;
-		.line {
-			padding: 0.25em 0;
-			border-bottom: 1px solid @insetColor;
-
-			strong {
-				display: inline-block;
-				min-width: 10em;
-				text-align: right;
-				padding-right: 1em;
-			}
-		}
-	}
-
-	&.quote blockquote cite {
-		display: block;
-		text-align: right;
-		font-style: italic;
-
-		&:before {
-			content: '— ';
-		}
-	}
 }
 
 footer {
-	font-size: 0.9em;
 	font-color: #333;
 
 	border-top: 3px solid black;
@@ -204,6 +221,7 @@ footer {
 	}
 
 	section {
+		font-size: 0.9em;
 		width: 49%;
 		margin-right: 1%;
 		float: left;
