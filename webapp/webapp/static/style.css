@@ -114,8 +114,11 @@ body {
   color: black;
   background-color: #eeeeee;
 }
-ol, ul {
+ol, ul, dd {
   margin-left: 2em;
+}
+dt {
+  font-weight: bold;
 }
 table {
   border-collapse: collapse;
@@ -132,6 +135,22 @@ strong {
 }
 em {
   font-style: italic;
+}
+abbr[title] {
+  border-bottom: 1px dashed;
+}
+acronym[title] {
+  border-bottom: 1px dashed;
+}
+ins {
+  background-color: rgba(0, 255, 0, 0.3);
+  text-decoration: none;
+}
+del {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+code {
+  font-family: monospace;
 }
 #header {
   padding: 1em;
@@ -167,6 +186,7 @@ em {
   position: relative;
   overflow: hidden;
   background-color: white;
+  text-align: justify;
 }
 #content h2,
 #content h3,
@@ -175,27 +195,68 @@ em {
 #content h6,
 #content p,
 #content ul,
-#content ol table,
+#content ol,
+#content dl,
+#content table,
 #content div.media,
-#content blockquote {
+#content blockquote,
+#content pre {
   margin-bottom: 1em;
+}
+#content h2,
+#content h3,
+#content h4,
+#content h5,
+#content h6 {
+  border-bottom: 2px solid black;
 }
 #content h2 {
   font-size: 1.5em;
 }
+#content h3 {
+  font-size: 1.3em;
+}
+#content h4 {
+  font-size: 1.1em;
+}
+#content h5 {
+  font-size: 1em;
+  font-weight: bold;
+}
+#content h6 {
+  font-size: 1em;
+}
+#content blockquote, #content pre {
+  position: relative;
+  padding: 1em;
+  background-color: #eeeeee;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+  border-radius: 1em;
+}
+#content blockquote + cite {
+  display: block;
+  text-align: right;
+  font-style: italic;
+  margin-top: -1em;
+}
+#content blockquote + cite:before {
+  content: '— ';
+}
+#content blockquote :last-child {
+  margin-bottom: 0;
+}
 article {
   margin-left: 20em;
-  margin-bottom: 5em;
+  margin-bottom: 8em;
+  line-height: 1.4;
 }
 article .meta {
   float: left;
   margin-left: -22em;
   width: 20em;
   text-align: right;
-  padding-top: 0.6em;
 }
 article .meta p {
-  font-size: 0.8em;
   margin-bottom: 0.5em;
 }
 article .meta p.tags a {
@@ -207,42 +268,18 @@ article .meta p.tags a {
   box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
   color: black;
 }
-article div.media, article blockquote {
+article div.media {
   position: relative;
   padding: 1em;
   background-color: #eeeeee;
-  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
   border-radius: 1em;
-}
-article div.media {
   text-align: center;
 }
 article div.media img {
   max-width: 100%;
 }
-article.chat .lines {
-  border-top: 1px solid #eeeeee;
-}
-article.chat .lines .line {
-  padding: 0.25em 0;
-  border-bottom: 1px solid #eeeeee;
-}
-article.chat .lines .line strong {
-  display: inline-block;
-  min-width: 10em;
-  text-align: right;
-  padding-right: 1em;
-}
-article.quote blockquote cite {
-  display: block;
-  text-align: right;
-  font-style: italic;
-}
-article.quote blockquote cite:before {
-  content: '— ';
-}
 footer {
-  font-size: 0.9em;
   font-color: #333;
   border-top: 3px solid black;
   border-radius: 3px;
@@ -254,6 +291,7 @@ footer div.inner {
   position: relative;
 }
 footer section {
+  font-size: 0.9em;
   width: 49%;
   margin-right: 1%;
   float: left;
