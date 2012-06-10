@@ -48,16 +48,16 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
-ASSET_URL = 'http://maelstrom.github.com/blog/'
+ASSETS_URL = 'http://maelstrom.github.com/blog/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ASSET_URL + 'media/'
+MEDIA_URL = ASSETS_URL + 'media/'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = ASSET_URL + 'static/'
+STATIC_URL = ASSETS_URL + 'static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
