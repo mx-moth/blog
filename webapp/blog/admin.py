@@ -15,7 +15,7 @@ class PostAdmin(admin.ModelAdmin):
             ]
         }),
         ('Meta', {
-            'fields': ['published'],
+            'fields': ['published', 'public'],
         })
     ]
 

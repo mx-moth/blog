@@ -10,7 +10,7 @@ class LatestPostsFeed(Feed):
     description = "The latest blog posts"
 
     def items(self):
-        return Post.objects.all()[:10]
+        return Post.objects.listed()[:10]
     
     def item_title(self, item):
         return item.title
