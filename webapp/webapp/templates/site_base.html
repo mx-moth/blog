@@ -74,10 +74,10 @@
 
     </div>
 
-	{% if not debug %}
+	{% if not debug and not user.is_staff %}
 <script>
 function woopraReady(tracker) {
-    tracker.setDomain('timheap.me');
+    tracker.setDomain('{{ site.domain }}');
     tracker.setIdleTimeout(300000);
     tracker.trackPageview({type:'pageview',url:window.location.pathname+window.location.search,title:document.title});
     return false;

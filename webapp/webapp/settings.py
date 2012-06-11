@@ -1,5 +1,7 @@
-# Django settings for webapp project.
 import os;
+import dj_database_url
+
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
 PROJ_ROOT = os.path.dirname(os.path.dirname(__file__))
 ROOT = os.path.dirname(PROJ_ROOT)
@@ -17,7 +19,6 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-import dj_database_url
 DATABASES = {
     'default': dj_database_url.config(default="sqlite:////%s/dev.db" % MEDIA_ROOT)
 }
@@ -92,6 +93,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS += (
+    'webapp.context_processors.site',
 )
 
 ROOT_URLCONF = 'webapp.urls'
