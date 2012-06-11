@@ -154,28 +154,20 @@ code {
 }
 #header {
   padding: 1em;
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid #000000;
   background-color: #ff7104;
 }
 #header h1 {
   position: relative;
-  padding: 0 1em 0 3em;
-  margin-left: 18em;
-  padding-left: 2em;
 }
 #header h1 a {
   font-size: 2em;
   color: inherit;
   text-decoration: none;
   display: block;
-  padding-top: 1em;
 }
 #header h1 img {
-  position: absolute;
-  top: 0px;
-  right: 100%;
-  height: 100%;
-  border-radius: 2px;
+  display: none;
 }
 #header h1 .description {
   display: block;
@@ -186,75 +178,71 @@ code {
   position: relative;
   overflow: hidden;
   background-color: white;
+}
+article {
+  margin-bottom: 4em;
+  line-height: 1.4;
   text-align: justify;
 }
-#content h2,
-#content h3,
-#content h4,
-#content h5,
-#content h6,
-#content p,
-#content ul,
-#content ol,
-#content dl,
-#content table,
-#content div.media,
-#content blockquote,
-#content pre {
+article h2,
+article h3,
+article h4,
+article h5,
+article h6,
+article p,
+article ul,
+article ol,
+article dl,
+article table,
+article div.media,
+article blockquote,
+article pre {
   margin-bottom: 1em;
 }
-#content h2,
-#content h3,
-#content h4,
-#content h5,
-#content h6 {
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
   border-bottom: 2px solid black;
 }
-#content h2 {
+article h2 {
   font-size: 1.5em;
 }
-#content h3 {
+article h3 {
   font-size: 1.3em;
 }
-#content h4 {
+article h4 {
   font-size: 1.1em;
 }
-#content h5 {
+article h5 {
   font-size: 1em;
   font-weight: bold;
 }
-#content h6 {
+article h6 {
   font-size: 1em;
 }
-#content blockquote, #content pre {
+article blockquote, article pre {
   position: relative;
   padding: 1em;
   background-color: #eeeeee;
-  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+  border: 3px solid #000000;
   border-radius: 1em;
 }
-#content blockquote + cite {
+article code {
+  background-color: #eeeeee;
+}
+article blockquote + cite {
   display: block;
   text-align: right;
   font-style: italic;
   margin-top: -1em;
 }
-#content blockquote + cite:before {
+article blockquote + cite:before {
   content: '— ';
 }
-#content blockquote :last-child {
+article blockquote :last-child {
   margin-bottom: 0;
-}
-article {
-  margin-left: 20em;
-  margin-bottom: 8em;
-  line-height: 1.4;
-}
-article .meta {
-  float: left;
-  margin-left: -22em;
-  width: 20em;
-  text-align: right;
 }
 article .meta p {
   margin-bottom: 0.5em;
@@ -272,7 +260,7 @@ article div.media {
   position: relative;
   padding: 1em;
   background-color: #eeeeee;
-  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+  border: 3px solid #000000;
   border-radius: 1em;
   text-align: center;
 }
@@ -281,14 +269,9 @@ article div.media img {
 }
 footer {
   font-color: #333;
-  border-top: 3px solid black;
-  border-radius: 3px;
+  border-top: 3px solid #000000;
   padding: 1em;
   overflow: hidden;
-}
-footer div.inner {
-  margin-left: 20em;
-  position: relative;
 }
 footer section {
   font-size: 0.9em;
@@ -306,4 +289,91 @@ footer section ul {
 }
 footer section form {
   margin-bottom: 1em;
+}
+@media only screen and (min-width: 480px) {
+  /* Portrait phones */
+}
+@media only screen and (min-width: 600px) {
+  /* Landscape phones */
+}
+@media only screen and (max-width: 767px) {
+  article .meta {
+    overflow: visible;
+    background-color: #eeeeee;
+    font-size: 0.8em;
+    padding: 1em;
+    margin-bottom: 1.25em;
+    border-radius: 1em;
+  }
+  article .meta :last-child {
+    margin-bottom: 0px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  /* Tiny desktops/tablets portrait */
+  #header h1 {
+    margin-left: 10em;
+    padding: 0 1em 0 2em;
+  }
+  #header h1 img {
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 100%;
+    border-radius: 2px;
+    height: 100%;
+  }
+  article {
+    margin-left: 12em;
+    margin-bottom: 6em;
+  }
+  article .meta {
+    float: left;
+    margin-left: -12em;
+    width: 10em;
+    text-align: right;
+  }
+  footer div.inner {
+    margin-left: 10em;
+    position: relative;
+  }
+}
+@media only screen and (min-width: 992px) {
+  /* Small desktops/tablets landscape */
+  #header h1 {
+    margin-left: 15em;
+    padding: 0 1em 0 2em;
+  }
+  #header h1 a {
+    padding-top: 1em;
+  }
+  #header h1 img {
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 100%;
+    height: 100%;
+    border-radius: 2px;
+    width: auto;
+  }
+  article {
+    margin-left: 17em;
+    margin-bottom: 8em;
+  }
+  article .meta {
+    float: left;
+    margin-left: -17em;
+    width: 15em;
+    text-align: right;
+  }
+  footer div.inner {
+    margin-left: 15em;
+    position: relative;
+  }
+}
+@media only screen and (min-width: 1382px) {
+  /* Descent sized desktops */
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+  
 }

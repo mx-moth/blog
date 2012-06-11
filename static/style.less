@@ -6,10 +6,10 @@ License: none (public domain)
 
 @highlightColor: #FF7104;
 
-@leftColumn: 20em;
 @columnGap: 2em;
 
 @insetColor: #eee;
+@border-width: 3px;
 
 
 html, body, div, span, applet, object, iframe,
@@ -81,31 +81,22 @@ code { font-family: monospace; }
 #header {
 	padding: 1em;
 
-	border-bottom: 3px solid black;
+	border-bottom: @border-width solid black;
 
 	background-color: @highlightColor;
 
-
 	h1 {
 		position: relative;
-		padding: 0 1em 0 (1em + @columnGap);
-		margin-left: @leftColumn - @columnGap;
-		padding-left: @columnGap;
 
 		a {
 			font-size: 2em;
 			color : inherit;
 			text-decoration: none;
 			display: block;
-			padding-top: 1em;
 		}
 
 		img {
-			position: absolute;
-			top: 0px;
-			right: 100%;
-			height: 100%;
-			border-radius: 2px;
+			display: none;
 		}
 
 		.description {
@@ -121,7 +112,19 @@ code { font-family: monospace; }
 	position: relative;
 	overflow: hidden;
 	background-color: white;
-	text-align: justify;
+}
+
+.inset-block() {
+	position: relative;
+	padding: 1em;
+
+	background-color: @insetColor;
+	border: @border-width solid black;
+	border-radius: 1em;
+}
+
+article {
+	margin-bottom: 4em;
 
 	h2, h3, h4, h5, h6, p,
 	ul, ol, dl,
@@ -146,6 +149,10 @@ code { font-family: monospace; }
 		.inset-block();
 	}
 
+	code {
+		background-color: @insetColor;
+	}
+
 	blockquote + cite {
 		display: block;
 		text-align: right;
@@ -160,28 +167,11 @@ code { font-family: monospace; }
 		margin-bottom: 0;
 
 	}
-}
 
-.inset-block() {
-	position: relative;
-	padding: 1em;
-
-	background-color: @insetColor;
-	box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
-	border-radius: 1em;
-}
-
-article {
-	margin-left: @leftColumn;
-	margin-bottom: 8em;
 	line-height: 1.4;
+	text-align: justify;
 
 	.meta {
-		float: left;
-		margin-left: -1 * (@leftColumn + @columnGap);
-		width: @leftColumn;
-		text-align: right;
-
 		p {
 			margin-bottom: 0.5em;
 		}
@@ -210,15 +200,9 @@ article {
 footer {
 	font-color: #333;
 
-	border-top: 3px solid black;
-	border-radius: 3px;
+	border-top: @border-width solid black;
 	padding: 1em;
 	overflow: hidden;
-
-	div.inner {
-		margin-left: 20em;
-		position: relative;
-	}
 
 	section {
 		font-size: 0.9em;
@@ -240,3 +224,109 @@ footer {
 	}
 
 }
+
+
+@media only screen and (min-width: 480px) {
+	/* Portrait phones */
+}
+@media only screen and (min-width: 600px) {
+	/* Landscape phones */
+}
+@media only screen and (max-width: 767px) {
+	article .meta {
+		overflow: visible;
+		background-color: @insetColor;
+		font-size: 0.8em;
+		padding: 1em;
+		margin-bottom: 1em / 0.8;
+		border-radius: 1em;
+		:last-child {
+			margin-bottom: 0px;
+		}
+	}
+}
+@media only screen and (min-width: 768px) {
+	/* Tiny desktops/tablets portrait */
+	@leftColumn: 10em;
+
+	#header h1 {
+		margin-left: @leftColumn;
+		padding: 0 1em 0 @columnGap;
+
+		img {
+			display: block;
+			position: absolute;
+			top: 0px;
+			right: 100%;
+			border-radius: 2px;
+			height: 100%;
+		}
+	}
+
+	article {
+		margin-left: @leftColumn + @columnGap;
+		margin-bottom: 6em;
+
+		.meta {
+			float: left;
+			margin-left: -1 * (@leftColumn + @columnGap);
+			width: @leftColumn;
+			text-align: right;
+		}
+	}
+
+	footer {
+		div.inner {
+			margin-left: @leftColumn;
+			position: relative;
+		}
+	}
+}
+@media only screen and (min-width: 992px) {
+	/* Small desktops/tablets landscape */
+	@leftColumn: 15em;
+
+	#header h1 {
+		margin-left: @leftColumn;
+		padding: 0 1em 0 @columnGap;
+
+		a {
+			padding-top: 1em;
+		}
+
+		img {
+			display: block;
+			position: absolute;
+			top: 0px;
+			right: 100%;
+			height: 100%;
+			border-radius: 2px;
+			width: auto;
+		}
+	}
+
+	article {
+		margin-left: @leftColumn + @columnGap;
+		margin-bottom: 8em;
+
+		.meta {
+			float: left;
+			margin-left: -1 * (@leftColumn + @columnGap);
+			width: @leftColumn;
+			text-align: right;
+		}
+	}
+
+	footer {
+		div.inner {
+			margin-left: @leftColumn;
+			position: relative;
+		}
+	}
+}
+@media only screen and (min-width: 1382px) {
+	/* Descent sized desktops */
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+}
+
