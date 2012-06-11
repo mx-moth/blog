@@ -123,6 +123,7 @@ INSTALLED_APPS = (
 
     'south',
     'debug_toolbar',
+    'gunicorn',
 
     'webapp',
     'blog',
