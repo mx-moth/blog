@@ -74,6 +74,17 @@
 
     </div>
 
+<script>
+window.TH = {
+	ENV: {
+		STATIC_URL: '{{ STATIC_URL }}'
+	}
+};
+</script>
+<link rel="stylesheet" href="{{ STATIC_URL}}libs/pretty/prettify.css">
+<script src="{{ STATIC_URL}}libs/pretty/prettify.js"></script>
+<script>prettyPrint()</script>
+
 	{% if not debug and not user.is_staff %}
 <script>
 function woopraReady(tracker) {
