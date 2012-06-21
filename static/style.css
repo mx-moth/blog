@@ -104,7 +104,9 @@ nav,
 section {
   display: block;
 }
-html, body, footer {
+html,
+body,
+footer {
   display: block;
   min-height: 100%;
 }
@@ -114,7 +116,9 @@ body {
   color: black;
   background-color: #eeeeee;
 }
-ol, ul, dd {
+ol,
+ul,
+dd {
   margin-left: 2em;
 }
 dt {
@@ -136,6 +140,12 @@ strong {
 em {
   font-style: italic;
 }
+small {
+  font-size: 0.8em;
+}
+big {
+  font-size: 1.2em;
+}
 abbr[title] {
   border-bottom: 1px dashed;
 }
@@ -152,102 +162,124 @@ del {
 code {
   font-family: monospace;
 }
-#header {
-  padding: 1em;
-  border-bottom: 3px solid #000000;
-  background-color: #ff7104;
-}
-#header h1 {
-  position: relative;
-}
-#header h1 a {
-  font-size: 2em;
-  color: inherit;
-  text-decoration: none;
-  display: block;
-}
-#header h1 img {
-  display: none;
-}
-#header h1 .description {
-  display: block;
+ul.plain {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
 }
 #content {
   clear: both;
-  padding: 1em;
+  padding: 0 1em;
   position: relative;
   overflow: hidden;
-  background-color: white;
 }
-article {
-  margin-bottom: 4em;
+article,
+header {
+  border: solid black;
+  border-width: 3px 3px 6px;
+  border-radius: 1em;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  padding: 1em;
+  position: relative;
+  margin-bottom: 1em;
   line-height: 1.4;
   text-align: justify;
 }
+article > :last-child,
+header > :last-child {
+  margin-bottom: 0;
+}
 article h2,
+header h2,
 article h3,
+header h3,
 article h4,
+header h4,
 article h5,
+header h5,
 article h6,
+header h6,
 article p,
+header p,
 article ul,
+header ul,
 article ol,
+header ol,
 article dl,
+header dl,
 article table,
+header table,
 article div.media,
+header div.media,
 article blockquote,
-article pre {
+header blockquote,
+article pre,
+header pre {
   margin-bottom: 1em;
 }
 article h2,
-article h3,
-article h4,
-article h5,
-article h6 {
-  border-bottom: 2px solid black;
-}
-article h2 {
+header h2 {
   font-size: 1.5em;
 }
-article h3 {
+article h3,
+header h3 {
   font-size: 1.3em;
 }
-article h4 {
+article h4,
+header h4 {
   font-size: 1.1em;
 }
-article h5 {
+article h5,
+header h5 {
   font-size: 1em;
   font-weight: bold;
 }
-article h6 {
+article h6,
+header h6 {
   font-size: 1em;
 }
-article blockquote, article pre {
-  position: relative;
-  padding: 1em;
-  background-color: #eeeeee;
-  border: 3px solid #000000;
+article blockquote,
+header blockquote,
+article pre,
+header pre {
+  border: solid black;
+  border-width: 2px 2px 4px;
   border-radius: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  padding: 1em;
+  position: relative;
+  background-color: #eeeeee;
+  overflow-x: auto;
 }
-article code {
+article blockquote > :last-child,
+header blockquote > :last-child,
+article pre > :last-child,
+header pre > :last-child {
+  margin-bottom: 0;
+}
+article code,
+header code {
   background-color: #eeeeee;
 }
-article blockquote + cite {
+article blockquote + cite,
+header blockquote + cite {
   display: block;
   text-align: right;
   font-style: italic;
   margin-top: -1em;
 }
-article blockquote + cite:before {
+article blockquote + cite:before,
+header blockquote + cite:before {
   content: '— ';
 }
-article blockquote :last-child {
-  margin-bottom: 0;
-}
-article .meta p {
+article .meta p,
+header .meta p {
   margin-bottom: 0.5em;
 }
-article .meta p.tags a {
+article .meta p.tags a,
+header .meta p.tags a {
   display: inline-block;
   margin: 0.2em 0px;
   border-radius: 3px;
@@ -256,22 +288,111 @@ article .meta p.tags a {
   box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
   color: black;
 }
-article div.media {
-  position: relative;
-  padding: 1em;
-  background-color: #eeeeee;
-  border: 3px solid #000000;
+article div.media,
+header div.media {
+  border: solid black;
+  border-width: 2px 2px 4px;
   border-radius: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  padding: 1em;
+  position: relative;
+  background-color: #eeeeee;
+  overflow-x: auto;
   text-align: center;
 }
-article div.media img {
+article div.media > :last-child,
+header div.media > :last-child {
+  margin-bottom: 0;
+}
+article div.media img,
+header div.media img {
   max-width: 100%;
+}
+article.hero,
+header.hero {
+  background-color: #ff7104;
+}
+article.content,
+header.content {
+  margin-bottom: 4em;
+}
+header {
+  border: solid black;
+  border-width: 5px 5px 10px;
+  border-radius: 1em;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  padding: 1em;
+  position: relative;
+  background-color: #ff7104;
+  margin-top: 4em;
+}
+header > :last-child {
+  margin-bottom: 0;
+}
+header a {
+  color: white;
+}
+header a:visited {
+  color: white;
+}
+header.site {
+  margin: 0em;
+  border: 0 none;
+  border-bottom: 10px solid black;
+  border-radius: 0;
+}
+header.site h1 {
+  position: relative;
+}
+header.site h1 a {
+  font-size: 2em;
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+header.site h1 a:visited {
+  color: inherit;
+}
+header.site h1 img {
+  display: none;
+}
+header.site h1 .description {
+  display: block;
+}
+header.hero {
+  font-size: 2em;
+  margin: 0.5em;
+}
+a.whole-block {
+  text-decoration: none;
+  color: inherit;
+}
+a.whole-block:hover article,
+a.whole-block:hover header,
+a.whole-block:hover blockquote {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+section.article-grid {
+  overflow: hidden;
+  position: relative;
+}
+section.article-grid header {
+  margin-bottom: 2em;
+}
+section.article-grid header h2,
+section.article-grid header h3,
+section.article-grid header h4 {
+  border-bottom: none;
+  margin-bottom: none;
 }
 footer {
   font-color: #333;
   border-top: 3px solid #000000;
   padding: 1em;
   overflow: hidden;
+  background-color: white;
 }
 footer section {
   font-size: 0.9em;
@@ -299,75 +420,143 @@ footer section form {
 @media only screen and (max-width: 767px) {
   article .meta {
     overflow: visible;
-    background-color: #eeeeee;
     font-size: 0.8em;
     padding: 1em;
     margin-bottom: 1.25em;
-    border-radius: 1em;
-  }
-  article .meta :last-child {
-    margin-bottom: 0px;
   }
 }
 @media only screen and (min-width: 768px) {
   /* Tiny desktops/tablets portrait */
-  #header h1 {
-    margin-left: 10em;
-    padding: 0 1em 0 2em;
+  header h1 {
+    /*
+  		margin-left: @rightColumn;
+  		padding-left: 1em;
+  
+  		img {
+  			display: block;
+  			position: absolute;
+  			top: 0px;
+  			right: 100%;
+  			border-radius: 2px;
+  			height: 100%;
+  		}
+  		*/
+  
   }
-  #header h1 img {
-    display: block;
-    position: absolute;
-    top: 0px;
-    right: 100%;
-    border-radius: 2px;
-    height: 100%;
-  }
-  article {
-    margin-left: 12em;
+  article.content {
+    margin-right: 12em;
     margin-bottom: 6em;
+    position: relative;
   }
-  article .meta {
-    float: left;
-    margin-left: -12em;
+  article.content aside {
+    border: solid black;
+    border-width: 3px 3px 6px;
+    border-radius: 1em;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    padding: 1em;
+    position: relative;
+    /*
+  			position: absolute;
+  			top: 3em;
+  			right: -1 * (@rightColumn + @columnGap);
+  			*/
+  
+    float: right;
     width: 10em;
-    text-align: right;
+    z-index: 1;
+    margin-right: -13em;
+  }
+  article.content aside > :last-child {
+    margin-bottom: 0;
+  }
+  article.hero {
+    margin-right: 0;
   }
   footer div.inner {
-    margin-left: 10em;
     position: relative;
   }
 }
 @media only screen and (min-width: 992px) {
   /* Small desktops/tablets landscape */
-  #header h1 {
-    margin-left: 15em;
-    padding: 0 1em 0 2em;
+  header h1 {
+    /*
+  		margin-left: @rightColumn;
+  		padding-left: 1em;
+  
+  		img {
+  			display: block;
+  			position: absolute;
+  			top: 0px;
+  			right: 100%;
+  			height: 100%;
+  			border-radius: 2px;
+  			width: auto;
+  		}
+  		*/
+  
   }
-  #header h1 a {
+  header h1 a {
     padding-top: 1em;
   }
-  #header h1 img {
-    display: block;
-    position: absolute;
-    top: 0px;
-    right: 100%;
-    height: 100%;
-    border-radius: 2px;
-    width: auto;
-  }
-  article {
-    margin-left: 17em;
+  article.content {
+    margin-right: 17em;
     margin-bottom: 8em;
   }
-  article .meta {
-    float: left;
-    margin-left: -17em;
+  article.content aside {
     width: 15em;
-    text-align: right;
+    margin-right: -18em;
+  }
+  article.hero {
+    margin-right: 0;
+  }
+  div.row {
+    width: 100%;
+  }
+  div.row [class*="span"] {
+    margin-left: 2%;
+    float: left;
+  }
+  div.row [class*="span"]:first-child {
+    margin-left: 0;
+  }
+  div.row .span1 {
+    width: 6.5%;
+  }
+  div.row .span2 {
+    width: 15%;
+  }
+  div.row .span3 {
+    width: 23.5%;
+  }
+  div.row .span4 {
+    width: 32%;
+  }
+  div.row .span5 {
+    width: 40.5%;
+  }
+  div.row .span6 {
+    width: 49%;
+  }
+  div.row .span7 {
+    width: 57.5%;
+  }
+  div.row .span8 {
+    width: 66%;
+  }
+  div.row .span9 {
+    width: 74.5%;
+  }
+  div.row .span10 {
+    width: 83%;
+  }
+  div.row .span11 {
+    width: 91.5%;
+  }
+  div.row .span12 {
+    width: 100%;
   }
   footer div.inner {
-    margin-left: 15em;
     position: relative;
   }
 }
