@@ -47,8 +47,8 @@ body {
 	line-height: 1.2;
 	font-family: sans-serif;
 	color: black;
-	// background-color: @insetColor;
 }
+
 
 ol, ul, dd {
 	margin-left: 2em;
@@ -307,36 +307,22 @@ footer {
 	/* Tiny desktops/tablets portrait */
 	@rightColumn: 10em;
 
-	header h1 {
-		/*
-		margin-left: @rightColumn;
-		padding-left: 1em;
-
-		img {
-			display: block;
-			position: absolute;
-			top: 0px;
-			right: 100%;
-			border-radius: 2px;
-			height: 100%;
-		}
-		*/
+	body { 
+		background-image: url('img/bg.png');
+		background-position: center top;
+		background-repeat: no-repeat;
+	}
+	#wrapper {
+		background-color: white;
+		background-color: rgba(255, 255, 255, 0.9);
 	}
 
-	article.content {
-		margin-right: @rightColumn + @columnGap;
+	article.content,  {
+        margin-right: @rightColumn + @columnGap;
 		margin-bottom: 6em;
 		position: relative;
 
 		aside {
-			.bubble();
-
-			/*
-			position: absolute;
-			top: 3em;
-			right: -1 * (@rightColumn + @columnGap);
-			*/
-
 			float: right;
 			width: @rightColumn;
 			z-index: 1;
@@ -357,11 +343,8 @@ footer {
 	/* Small desktops/tablets landscape */
 	@rightColumn: 15em;
 
-	header h1 {
-	}
-
 	article.content {
-		margin-right: @rightColumn + @columnGap;
+        margin-right: @rightColumn + @columnGap;
 		margin-bottom: 8em;
 		aside {
 			width: @rightColumn;

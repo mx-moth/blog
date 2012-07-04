@@ -408,21 +408,14 @@ footer section form {
 }
 @media only screen and (min-width: 768px) {
   /* Tiny desktops/tablets portrait */
-  header h1 {
-    /*
-  		margin-left: @rightColumn;
-  		padding-left: 1em;
-  
-  		img {
-  			display: block;
-  			position: absolute;
-  			top: 0px;
-  			right: 100%;
-  			border-radius: 2px;
-  			height: 100%;
-  		}
-  		*/
-  
+  body {
+    background-image: url('img/bg.png');
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+  #wrapper {
+    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
   }
   article.content {
     margin-right: 12em;
@@ -430,25 +423,10 @@ footer section form {
     position: relative;
   }
   article.content aside {
-    border: solid black;
-    border-width: 3px 3px 6px;
-    border-radius: 1em;
-    background-color: white;
-    padding: 1em;
-    position: relative;
-    /*
-  			position: absolute;
-  			top: 3em;
-  			right: -1 * (@rightColumn + @columnGap);
-  			*/
-  
     float: right;
     width: 10em;
     z-index: 1;
     margin-right: -13em;
-  }
-  article.content aside > :last-child {
-    margin-bottom: 0;
   }
   article.hero {
     margin-right: 0;
