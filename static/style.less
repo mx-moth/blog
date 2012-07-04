@@ -47,7 +47,7 @@ body {
 	line-height: 1.2;
 	font-family: sans-serif;
 	color: black;
-	background-color: @insetColor;
+	// background-color: @insetColor;
 }
 
 ol, ul, dd {
@@ -81,18 +81,12 @@ del { background-color: rgba(255, 0, 0, 0.3); }
 
 code { font-family: monospace; }
 
-ul.plain {
-	list-style-type: none;
-	padding-left: 0;
-	margin-left: 0;
-}
-
 
 .bubble(@border: 3px) {
 	border: solid black;
 	border-width: @border @border @border * 2;
 	border-radius: 1em;
-	box-shadow: 0 @border @border * 2 rgba(0, 0, 0, 0.5);
+	// box-shadow: 0 @border @border * 2 rgba(0, 0, 0, 0.5);
 	background-color: white;
 	padding: 1em;
 	position: relative;
@@ -116,7 +110,7 @@ ul.plain {
 }
 
 article, header {
-	.bubble();
+	// .bubble();
 	margin-bottom: 1em;
 
 	h2, h3, h4, h5, h6, p,
@@ -172,7 +166,7 @@ article, header {
 			border-radius: 3px;
 			background-color: @insetColor;
 			padding: 3px 6px;
-			box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+			// box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
 			color: black;
 		}
 	}
@@ -195,14 +189,16 @@ article, header {
 }
 
 header {
+	margin-top: 4em;
+	background-color: a;
 	.bubble(5px);
 	background-color: @highlightColor;
-	margin-top: 4em;
 
 	a { color: white; }
 	a:visited { color: white; }
 
 	&.site {
+		background-color: @insetColor;
 		margin: 0em;
 		border: 0 none;
 		border-bottom: 10px solid black;
@@ -269,7 +265,7 @@ footer {
 	border-top: @border-width solid black;
 	padding: 1em;
 	overflow: hidden;
-	background-color: white;
+	background-color: @insetColor;
 
 	section {
 		font-size: 0.9em;
@@ -362,24 +358,6 @@ footer {
 	@rightColumn: 15em;
 
 	header h1 {
-
-		a {
-			padding-top: 1em;
-		}
-		/*
-		margin-left: @rightColumn;
-		padding-left: 1em;
-
-		img {
-			display: block;
-			position: absolute;
-			top: 0px;
-			right: 100%;
-			height: 100%;
-			border-radius: 2px;
-			width: auto;
-		}
-		*/
 	}
 
 	article.content {
