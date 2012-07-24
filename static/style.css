@@ -161,7 +161,7 @@ del {
 code {
   font-family: monospace;
 }
-#content {
+.body-content {
   clear: both;
   padding: 0 1em;
   position: relative;
@@ -298,15 +298,14 @@ header.content {
   margin-bottom: 4em;
 }
 header {
-  margin-top: 4em;
-  background-color: a;
+  margin-top: 2em;
   border: solid black;
   border-width: 5px 5px 10px;
   border-radius: 1em;
   background-color: white;
   padding: 1em;
   position: relative;
-  background-color: #ff7104;
+  background-color: #eeeeee;
 }
 header > :last-child {
   margin-bottom: 0;
@@ -346,6 +345,9 @@ header.hero {
   font-size: 2em;
   margin: 0.5em;
 }
+article header {
+  background-color: #ff7104;
+}
 a.whole-block {
   text-decoration: none;
   color: inherit;
@@ -368,28 +370,62 @@ section.article-grid header h4 {
   border-bottom: none;
   margin-bottom: none;
 }
-footer {
+footer.pagination {
+  border: solid black;
+  border-width: 1px 1px 2px;
+  border-radius: 1em;
+  background-color: white;
+  padding: 1em;
+  position: relative;
+  margin-bottom: 1em;
+  text-align: center;
+  padding: 0.5em 1em;
+}
+footer.pagination > :last-child {
+  margin-bottom: 0;
+}
+footer.pagination a,
+footer.pagination span.disabled,
+footer.pagination span.current {
+  display: inline-block;
+  padding: 0em 0.5em;
+  text-decoration: none;
+}
+footer.pagination span.current {
+  border: solid black;
+  border-width: 1px 1px 2px;
+  border-radius: 1em;
+  background-color: white;
+  padding: 1em;
+  position: relative;
+  margin: -1em 0;
+  background-color: #ff7104;
+}
+footer.pagination span.current > :last-child {
+  margin-bottom: 0;
+}
+footer.site-footer {
   font-color: #333;
   border-top: 3px solid #000000;
   padding: 1em;
   overflow: hidden;
   background-color: #eeeeee;
 }
-footer section {
+footer.site-footer section {
   font-size: 0.9em;
   width: 49%;
   margin-right: 1%;
   float: left;
 }
-footer section::last-child {
+footer.site-footer section::last-child {
   margin-right: 0%;
 }
-footer section ul {
+footer.site-footer section ul {
   list-style-type: none;
   margin-left: 0em;
   margin-bottom: 1em;
 }
-footer section form {
+footer.site-footer section form {
   margin-bottom: 1em;
 }
 @media only screen and (min-width: 480px) {
@@ -413,7 +449,7 @@ footer section form {
     background-position: center top;
     background-repeat: no-repeat;
   }
-  #wrapper {
+  .body-wrapper {
     background-color: white;
     background-color: rgba(255, 255, 255, 0.9);
   }
@@ -426,7 +462,7 @@ footer section form {
     float: right;
     width: 10em;
     z-index: 1;
-    margin-right: -13em;
+    margin-right: -12em;
   }
   article.hero {
     margin-right: 0;
@@ -443,7 +479,7 @@ footer section form {
   }
   article.content aside {
     width: 15em;
-    margin-right: -18em;
+    margin-right: -17em;
   }
   article.hero {
     margin-right: 0;
