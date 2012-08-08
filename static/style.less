@@ -166,13 +166,13 @@ article.blog-post {
 .makeSquares(@pageWidth, @columns) {
 	@size: (@pageWidth - (@pagePadding * (@columns - 1))) / @columns;
 
-	margin-right: -@pagePadding;
+	margin-left: -@pagePadding;
 
 	.square  {
 		position: relative;
 		width: @size;
 		height: @size;
-		margin-right: @pagePadding;
+		margin-left: @pagePadding;
 		float: left;
 	}
 
@@ -250,8 +250,8 @@ pre .atv, code .atv { color: #65B042; } /* html/xml attribute value - green */
 
 
 
-@media only screen and (min-width: 640px) {
-	@pageWidth: 640px;
+@media only screen and (min-width: 530px) {
+	@pageWidth: 530px;
 
 	.container {
 		width: @pageWidth;
@@ -264,6 +264,31 @@ pre .atv, code .atv { color: #65B042; } /* html/xml attribute value - green */
 
 	nav.site {
 		display: inline;
+	}
+
+	footer {
+		@size: (@pageWidth - @pagePadding) / 2;
+		.row {
+			margin-left: -@pagePadding;
+			section {
+				margin-left: @pagePadding;
+				float: left;
+				width: @size;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 762px) {
+	@pageWidth: 762px;
+
+	.container {
+		width: @pageWidth;
+		margin: 0px auto @pagePadding;
+	}
+
+	.squares {
+		.makeSquares(@pageWidth, 4);
 	}
 
 	article.blog-post {
@@ -281,8 +306,9 @@ pre .atv, code .atv { color: #65B042; } /* html/xml attribute value - green */
 	footer {
 		@size: (@pageWidth - @pagePadding) / 2;
 		.row {
-			margin-right: -@pagePadding;
+			margin-left: -@pagePadding;
 			section {
+				margin-left: @pagePadding;
 				float: left;
 				width: @size;
 			}

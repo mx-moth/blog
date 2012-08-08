@@ -632,26 +632,53 @@ code .atv {
 .colour16 header {
   background-color: #5320df;
 }
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 530px) {
   .container {
-    width: 640px;
+    width: 530px;
     margin: 0px auto 10px;
   }
   .squares {
-    margin-right: -10px;
+    margin-left: -10px;
   }
   .squares .square {
     position: relative;
-    width: 206.66666666666666px;
-    height: 206.66666666666666px;
-    margin-right: 10px;
+    width: 170px;
+    height: 170px;
+    margin-left: 10px;
     float: left;
   }
   .squares .double-width.square {
-    width: 423.3333333333333px;
+    width: 350px;
   }
   nav.site {
     display: inline;
+  }
+  footer .row {
+    margin-left: -10px;
+  }
+  footer .row section {
+    margin-left: 10px;
+    float: left;
+    width: 260px;
+  }
+}
+@media only screen and (min-width: 762px) {
+  .container {
+    width: 762px;
+    margin: 0px auto 10px;
+  }
+  .squares {
+    margin-left: -10px;
+  }
+  .squares .square {
+    position: relative;
+    width: 183px;
+    height: 183px;
+    margin-left: 10px;
+    float: left;
+  }
+  .squares .double-width.square {
+    width: 376px;
   }
   article.blog-post header {
     overflow: hidden;
@@ -667,11 +694,12 @@ code .atv {
     float: right;
   }
   footer .row {
-    margin-right: -10px;
+    margin-left: -10px;
   }
   footer .row section {
+    margin-left: 10px;
     float: left;
-    width: 315px;
+    width: 376px;
   }
 }
 @media only screen and (min-width: 980px) {
@@ -680,13 +708,13 @@ code .atv {
     margin: 0px auto 10px;
   }
   .squares {
-    margin-right: -10px;
+    margin-left: -10px;
   }
   .squares .square {
     position: relative;
     width: 188px;
     height: 188px;
-    margin-right: 10px;
+    margin-left: 10px;
     float: left;
   }
   .squares .double-width.square {
