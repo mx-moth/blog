@@ -219,34 +219,29 @@ pre .atv, code .atv { color: #65B042; } /* html/xml attribute value - green */
 		}
 	}
 }
-.colourBlock(@hue) {
-	@color: hsl(@hue, 75%, 50%);
-
+.colourBlock(@color) {
 	h2, h3, h4, h5, h6, a, .block-link-faker { color: @color; }
 	pre, blockquote { border-left-color: @color; }
-	&.square, header {
-		background-color: @color;
-	}
+	&.square, header { background-color: @color; }
 }
-@colorSteps: 256 / 16;
-@colorStep: 256 / @colorSteps;
-.colour0 { .colourBlock(@colorStep * 0); }
-.colour1 { .colourBlock(@colorStep * 1); }
-.colour2 { .colourBlock(@colorStep * 2); }
-.colour3 { .colourBlock(@colorStep * 3); }
-.colour4 { .colourBlock(@colorStep * 4); }
-.colour5 { .colourBlock(@colorStep * 5); }
-.colour6 { .colourBlock(@colorStep * 6); }
-.colour7 { .colourBlock(@colorStep * 7); }
-.colour8 { .colourBlock(@colorStep * 8); }
-.colour9 { .colourBlock(@colorStep * 9); }
-.colour10 { .colourBlock(@colorStep * 10); }
-.colour11 { .colourBlock(@colorStep * 11); }
-.colour12 { .colourBlock(@colorStep * 12); }
-.colour13 { .colourBlock(@colorStep * 13); }
-.colour14 { .colourBlock(@colorStep * 14); }
-.colour15 { .colourBlock(@colorStep * 15); }
-.colour16 { .colourBlock(@colorStep * 16); }
+// 16 steps around a colour wheel, tweaked slightly for more pleasant colours
+.colour0 { .colourBlock(hsl(0,90%,50%)); }
+.colour1 { .colourBlock(hsl(16,90%,50%)); }
+.colour2 { .colourBlock(hsl(32,90%,50%)); }
+.colour3 { .colourBlock(hsl(48,90%,50%)); }
+.colour4 { .colourBlock(hsl(64,90%,50%)); }
+.colour5 { .colourBlock(hsl(80,90%,50%)); }
+.colour6 { .colourBlock(hsl(96,90%,50%)); }
+.colour7 { .colourBlock(hsl(112,90%,50%)); }
+.colour8 { .colourBlock(hsl(128,90%,50%)); }
+.colour9 { .colourBlock(hsl(144,90%,50%)); }
+.colour10 { .colourBlock(hsl(160,90%,50%)); }
+.colour11 { .colourBlock(hsl(176,90%,50%)); }
+.colour12 { .colourBlock(hsl(192,90%,50%)); }
+.colour13 { .colourBlock(hsl(208,90%,50%)); }
+.colour14 { .colourBlock(hsl(224,90%,50%)); }
+.colour15 { .colourBlock(hsl(240,90%,50%)); }
+.colour16 { .colourBlock(hsl(256,90%,50%)); }
 
 
 
